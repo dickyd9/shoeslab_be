@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Jalankan Aplikasi
-        run: npm run dev start
+        run: npm run dev
         env:
           PORT: ${{ secrets.PORT }}
           NODE_ENV: ${{ secrets.NODE_ENV }}
