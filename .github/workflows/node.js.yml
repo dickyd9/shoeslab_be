@@ -36,7 +36,7 @@ jobs:
       #   run: npm run migrate
       #   env:
       #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
-
+      
       - name: Jalankan Aplikasi
         # run: npm run prod
         run:
