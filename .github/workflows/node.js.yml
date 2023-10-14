@@ -29,7 +29,7 @@ jobs:
       - name: Lakukan migrasi database
         run: npm run migrate
         env:
-          NODE_ENV: production  # Set NODE_ENV ke "production" untuk mode produksi
+          NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
 
       - name: Jalankan Aplikasi
         run: npm run prod
