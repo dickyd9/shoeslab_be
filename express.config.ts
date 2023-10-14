@@ -1,6 +1,8 @@
 import compression from "compression"
 import cookieParser from "cookie-parser"
 
+const serverless = require('serverless-http')
+
 import express, { Application } from "express"
 import helmet from "helmet"
 import morgan from "morgan"
