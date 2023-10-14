@@ -7,6 +7,8 @@
   "license": "MIT",
   "scripts": {
     "migrate": "sequelize db:migrate",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda",
     "start": "./node-modules/.bin/netlify-lambda serve src",
     "build": "./node-modules/.bin/netlify-lambda build src",
     "dev": "nodemon ./src/server.ts",
@@ -25,6 +27,7 @@
     "dotenv": "^16.3.1",
     "eslint": "^8.50.0",
     "jsonwebtoken": "^9.0.2",
+    "netlify-lambda": "^2.0.16",
     "nodemon": "^3.0.1",
     "sequelize-cli": "^6.6.1",
     "ts-node": "^10.9.1",
