@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "rootpassword",
-    "database": "shoeslab",
-    "host": "localhost",
+    "username": "limx5643_admin",
+    "password": "Zxcvbnm@09",
+    "database": "limx5643_test",
+    "host": "103.247.9.132",
     "dialect": "mysql",
     "pool": {
       "max": 5,

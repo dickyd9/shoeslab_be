@@ -9,5 +9,5 @@ const productRoutes = require('./module/router');
 app.use('/v1', productRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server is Fire at http://localhost:${PORT}`)
+  console.log(`Running`)
 })
