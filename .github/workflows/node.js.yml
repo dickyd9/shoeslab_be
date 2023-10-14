@@ -26,10 +26,10 @@ jobs:
       - name: Install dependensi
         run: npm install
 
-      - name: Lakukan migrasi database
-        run: npm run migrate
-        env:
-          NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
+      # - name: Lakukan migrasi database
+      #   run: npm run migrate
+      #   env:
+      #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
 
       - name: Jalankan Aplikasi
         run: npm run prod
