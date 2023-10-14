@@ -26,8 +26,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Aplikasi
-        run: npm run build
+      # - name: Build Aplikasi
+      #   run: npm run build
 
       - name: Jalankan Aplikasi
         run: npm run dev
