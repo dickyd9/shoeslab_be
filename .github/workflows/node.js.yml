@@ -39,7 +39,7 @@ jobs:
 
       - name: Jalankan Aplikasi
         # run: npm run prod
-        run: |
+        run:
           # Ambil alamat IP MySQL dari langkah sebelumnya
           MYSQL_IP=${{ steps.mysql_ip.outputs.mysql_ip }}
           
