@@ -1,0 +1,52 @@
+{
+  "name": "shoeslab-admin",
+  "version": "1.0.0",
+  "description": "Management Shoeslab",
+  "main": "server.ts",
+  "author": "Dicky",
+  "license": "MIT",
+  "scripts": {
+    "db:makemigrations": "./node_modules/sequelize-auto-migrations/bin/makemigration.js",
+    "dev": "npx nodemon ./src/server.ts",
+    "prod": "SET NODE_ENV=production node ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.7.3",
+    "@types/cookie-parser": "^1.4.4",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.18",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/morgan": "^1.9.6",
+    "@types/multer": "^1.4.8",
+    "@types/node": "^20.8.2",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.50.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/http-errors": "^2.0.2",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "class-validator": "^0.14.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.33.0",
+    "sequelize-cli": "^6.6.1",
+    "slash": "^5.1.0",
+    "typeorm": "^0.3.17"
+  }
+}
