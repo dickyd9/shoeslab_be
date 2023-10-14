@@ -15,22 +15,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Kode Sumber
+      - name: Checkout kode sumber
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
-      - name: Install Dependencies
+      - name: Install dependensi
         run: npm install
 
-      # - name: Build Aplikasi
-      #   run: npm run build
+      - name: Lakukan migrasi database
+        run: npm run migrate
+        env:
+          NODE_ENV: production  # Set NODE_ENV ke "production" untuk mode produksi
 
       - name: Jalankan Aplikasi
-        run: npm run dev
+        run: npm run prod
         env:
           PORT: ${{ secrets.PORT }}
           NODE_ENV: ${{ secrets.NODE_ENV }}
