@@ -43,7 +43,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           NODE_ENV: ${{ secrets.NODE_ENV }}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DB_HOST: mysql
+          DB_HOST: ${{ secrets.DB_HOST }}
           DB_USER: root
           DB_PASSWORD: rootpassword
           DB_NAME: ${{ secrets.DB_NAME }}
