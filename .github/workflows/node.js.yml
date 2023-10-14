@@ -10,15 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:latest
-        env:
-          MYSQL_ROOT_PASSWORD: rootpassword
-          MYSQL_DATABASE: ${{ secrets.DB_NAME }}
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    # services:
+    #   mysql:
+    #     image: mysql:latest
+    #     env:
+    #       MYSQL_ROOT_PASSWORD: rootpassword
+    #       MYSQL_DATABASE: ${{ secrets.DB_NAME }}
+    #     ports:
+    #       - 3306:3306
+    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout kode sumber
@@ -36,15 +36,6 @@ jobs:
       #   run: npm run migrate
       #   env:
       #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
-
-      - name: Tunggu MySQL siap
-        run: |
-          sleep 10  # Menunggu 10 detik, sesuaikan dengan kebutuhan
-          while ! mysqladmin ping -hmysql --silent; do
-            echo "Menunggu MySQL siap..."
-            sleep 5
-          done
-        timeout-minutes: 15  # Timeout maksimum
 
       - name: Jalankan Aplikasi
         run: npm run prod
