@@ -36,26 +36,24 @@ jobs:
       #   run: npm run migrate
       #   env:
       #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
-      
+
+      - name: Tunggu MySQL siap
+        run: |
+          sleep 10  # Menunggu 10 detik, sesuaikan dengan kebutuhan
+          while ! mysqladmin ping -hmysql --silent; do
+            echo "Menunggu MySQL siap..."
+            sleep 5
+          done
+        timeout-minutes: 15  # Timeout maksimum
+
       - name: Jalankan Aplikasi
-        # run: npm run prod
-        run:
-          # Ambil alamat IP MySQL dari langkah sebelumnya
-          MYSQL_IP=${{ steps.mysql_ip.outputs.mysql_ip }}
-          
-          # Atur variabel lingkungan untuk koneksi database
-          export DB_HOST=$MYSQL_IP
-          export DB_USER=root
-          export DB_PASSWORD=rootpassword
-          export DB_NAME=${{ secrets.DB_NAME }}
-          
-          # Jalankan aplikasi Node.js
-          npm run prod
+        run: npm run prod
         env:
           PORT: ${{ secrets.PORT }}
           NODE_ENV: ${{ secrets.NODE_ENV }}
-          # DB_HOST: mysql
-          # DB_USER: ${{ secrets.DB_USER }}
-          # DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          # DB_NAME: ${{ secrets.DB_NAME }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DB_HOST: mysql
+          DB_USER: root
+          DB_PASSWORD: rootpassword
+          DB_NAME: ${{ secrets.DB_NAME }}
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
