@@ -1,9 +1,11 @@
 [build]
-  publish = "dist" 
   command = "npm run build"
-  functions = "netlify/functions"
+  functions = "lambda"
 
+# this is actually a Rewrite
+# totally optional, but makes up for
+# a much better UX
 [[redirects]]
-  from = "/*/"
-  to = "/index.html"
+  from = "/"
+  to = "/.netlify/functions/index"
   status = 200
