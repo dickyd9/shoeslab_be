@@ -1,10 +1,11 @@
 import ExpressConfig from "./express.config"
 import { Inteceptor } from "./src/common/middleware/response"
-const serverless = require("serverless-http")
+import { APIGatewayEvent, Context } from "aws-lambda"
 
 const app = ExpressConfig()
 const PORT = process.env.PORT || 5000
 
+const serverless = require("serverless-http")
 const productRoutes = require("./src/module/router")
 
 // Route
@@ -16,4 +17,7 @@ app.listen(PORT, () => {
   console.log(`Server is Fire at http://localhost:${PORT}`)
 })
 
-module.exports.handler = serverless(app)
+export const handler = async (event: APIGatewayEvent, context: Context) => {
+  const result = await serverless(app)(event, context)
+  return result
+}

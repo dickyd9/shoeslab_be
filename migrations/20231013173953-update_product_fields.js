@@ -9,20 +9,12 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    return Promise.all([
-      queryInterface.addColumn(
-        "products", // table name
-        "productImage", // new field name
-        {
-          type: DataTypes.TEXT,
-          allowNull: true,
-        }
-      ),
-      queryInterface.addColumn("products", "productLink", {
-        type: DataTypes.STRING,
-        allowNull: true,
-      }),
-    ])
+    // return Promise.all([
+    //   queryInterface.addColumn("products", "productLink", {
+    //     type: DataTypes.STRING,
+    //     allowNull: true,
+    //   }),
+    // ])
   },
 
   async down(queryInterface, DataTypes) {

@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "rootpassword",
-    "database": "shoeslab",
-    "host": "localhost",
+    "username": "n1572482_admin",
+    "password": "Shoeslab.id",
+    "database": "n1572482_shoeslab",
+    "host": "193.168.194.110",
+    "port": "3306",
     "dialect": "mysql",
     "pool": {
       "max": 5,

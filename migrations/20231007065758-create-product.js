@@ -10,9 +10,6 @@ module.exports = {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
-      productImage: {
-        type: DataTypes.TEXT,
-      },
       productPrice: {
         type: DataTypes.STRING,
         allowNull: false,
