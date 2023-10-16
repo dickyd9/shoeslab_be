@@ -11,8 +11,8 @@
     "build:lambda": "netlify-lambda build src/lambda",
     "start": "./node-modules/.bin/netlify-lambda serve src",
     "build": "./node-modules/.bin/netlify-lambda build src",
-    "dev": "nodemon ./src/server.ts",
-    "prod": "NODE_ENV=production nodemon ./src/server.ts",
+    "dev": "nodemon ./server.ts",
+    "prod": "NODE_ENV=production nodemon ./server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -34,6 +34,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@netlify/functions": "^2.3.0",
     "@types/http-errors": "^2.0.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
@@ -52,6 +53,7 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.33.0",
     "sequelize-auto-migrations": "^1.0.3",
+    "sequelize-paginate": "^1.1.6",
     "serverless-http": "^3.2.0",
     "slash": "^5.1.0",
     "typeorm": "^0.3.17"

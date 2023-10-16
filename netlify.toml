@@ -1,7 +1,5 @@
 [build]
-        Functions = "lambda"
-        Command = "npm run build:lambda"
-        publish = "public"
+  functions = "functions"
 
-[functions]
-        node_bundler = "esbuild"
+[dev]
+  publish = "dist"

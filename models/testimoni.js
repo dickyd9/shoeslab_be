@@ -37,6 +37,7 @@ module.exports = function (sequelize, DataTypes) {
     {
       timestamps: true,
       paranoid: true,
+      freezeTableName: true
     }
   )
 

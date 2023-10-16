@@ -1,10 +1,19 @@
-import { Request, Response } from "express"
+import { Request, Response, NextFunction } from "express"
 import { BlogsService } from "./blog.service"
 
 export class BlogController {
-  static async getBlog(req: Request, res: Response) {
+  static async getBlog(req: Request, res: Response, next: NextFunction) {
     try {
-      const data = await BlogsService.getBlog()
+      const data = await BlogsService.getBlog(req)
+      res.json(data)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  static async getBlogDetail(req: Request, res: Response) {
+    try {
+      const data = await BlogsService.getBlogDetail(req)
       res.json(data)
     } catch (error) {
       console.error("Terjadi kesalahan:", error)
@@ -17,7 +26,7 @@ export class BlogController {
   static async addBlog(req: Request, res: Response) {
     const createBlog = req.body
     try {
-      const data = await BlogsService.addBlog(createBlog)
+      const data = await BlogsService.addBlog(req)
       res.json(data)
     } catch (error) {
       console.error("Terjadi kesalahan:", error)

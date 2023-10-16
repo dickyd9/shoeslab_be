@@ -22,4 +22,14 @@ export class UserController {
       res.status(500).json({ error })
     }
   }
+
+  static getAllUser = async (req: Request, res: Response) => {
+    try {
+      const data = await UserService.listAll(req)
+      res.json(data)
+    } catch (error) {
+      console.error("Terjadi kesalahan:", error)
+      res.status(500).json({ error })
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { ProductService } from "./product.service"
 export class ProductController {
   static async getProductData(req: Request, res: Response) {
     try {
-      const data = await ProductService.getProduct()
+      const data = await ProductService.getProduct(req)
       res.json(data)
     } catch (error) {
       console.error("Terjadi kesalahan:", error)

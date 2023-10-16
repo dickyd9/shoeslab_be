@@ -13,13 +13,18 @@ const bcrypt = require("bcryptjs")
 
 module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define(
-    "user",
+    "users",
     {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER,
+      },
+      fullname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
       },
       email: {
         type: DataTypes.STRING,
@@ -30,17 +35,22 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      // role: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false,
-      // },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       auth_token: {
         type: DataTypes.STRING,
         defaultValue: "",
       },
       email_verification_token: {
         type: DataTypes.STRING,
-        allowNull: false,
+        defaultValue: "",
       },
       is_email_verified: {
         type: DataTypes.BOOLEAN,
@@ -60,6 +70,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     {
       timestamps: true,
+      freezeTableName: true
     },
     {
       defaultScope: {

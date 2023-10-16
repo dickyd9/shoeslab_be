@@ -1,50 +1,50 @@
-name: Node.js CI
+# name: Node.js CI
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    # services:
-    #   mysql:
-    #     image: mysql:latest
-    #     env:
-    #       MYSQL_ROOT_PASSWORD: rootpassword
-    #       MYSQL_DATABASE: ${{ secrets.DB_NAME }}
-    #     ports:
-    #       - 3306:3306
-    #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+#     # services:
+#     #   mysql:
+#     #     image: mysql:latest
+#     #     env:
+#     #       MYSQL_ROOT_PASSWORD: rootpassword
+#     #       MYSQL_DATABASE: ${{ secrets.DB_NAME }}
+#     #     ports:
+#     #       - 3306:3306
+#     #     options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-    steps:
-      - name: Checkout kode sumber
-        uses: actions/checkout@v2
+#     steps:
+#       - name: Checkout Source
+#         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16
 
-      - name: Install dependensi
-        run: npm install
+#       - name: Instalation
+#         run: npm install
 
-      # - name: Lakukan migrasi database
-      #   run: npm run migrate
-      #   env:
-      #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
+#       # - name: Lakukan migrasi database
+#       #   run: npm run migrate
+#       #   env:
+#       #     NODE_ENV: development  # Set NODE_ENV ke "production" untuk mode produksi
 
-      - name: Jalankan Aplikasi
-        run: npm run prod
-        env:
-          PORT: ${{ secrets.PORT }}
-          NODE_ENV: ${{ secrets.NODE_ENV }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DB_HOST: ${{ secrets.DB_HOST }}
-          DB_USER: root
-          DB_PASSWORD: rootpassword
-          DB_NAME: ${{ secrets.DB_NAME }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+#       - name: Running Apps
+#         run: npm run prod
+#         env:
+#           PORT: ${{ secrets.PORT }}
+#           NODE_ENV: ${{ secrets.NODE_ENV }}
+#           SECRET_KEY: ${{ secrets.SECRET_KEY }}
+#           DB_HOST: ${{ secrets.DB_HOST }}
+#           DB_USER: root
+#           DB_PASSWORD: rootpassword
+#           DB_NAME: ${{ secrets.DB_NAME }}
+#           JWT_SECRET: ${{ secrets.JWT_SECRET }}

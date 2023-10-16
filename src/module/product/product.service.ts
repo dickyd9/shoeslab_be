@@ -1,16 +1,12 @@
+import { Inteceptor } from "../../common/middleware/response"
+
 const db = require("../../../models")
 const Product = db.product
 
 export class ProductService {
-  static async getProduct(): Promise<any> {
-    const products = await Product.findAll()
-    return new Promise((resolve, reject) => {
-      const data = {
-        message: "Data get success!",
-        data: products,
-      }
-      resolve(data)
-    })
+  static async getProduct(req: any): Promise<any> {
+    const message = "Success get data!"
+    return Inteceptor.response(Product, req, message)
   }
 
   static async addProduct(createProduct: any): Promise<any> {
@@ -18,12 +14,12 @@ export class ProductService {
 
     const originPath = "/assets/images/product/" + file?.filename
     const data = {
-      productImage: originPath || '',
+      productImage: originPath || "",
       productName: body.productName,
       productPrice: body.productPrice,
       productLink: body.productLink,
     }
-    
+
     const products = await Product.create(data)
     return new Promise((resolve, reject) => {
       const data = {

@@ -109,6 +109,6 @@
     "sourceMap": true,
     "outDir": "dist",
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "express.config.js", "server.ts", "server.ts"],
   "exclude": ["node_modules"]
 }

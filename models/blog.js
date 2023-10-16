@@ -10,6 +10,10 @@ module.exports = function (sequelize, DataTypes) {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
+      blogImage: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
       blogTitle: {
         type: DataTypes.STRING,
         allowNull: false,

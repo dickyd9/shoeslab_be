@@ -1,5 +1,5 @@
 const db = require("../../../models")
-const User = db.user
+const User = db.users
 import dotenv from "dotenv"
 
 const bcrypt = require("bcrypt")
@@ -10,7 +10,6 @@ dotenv.config()
 
 export class AuthService {
   static login = async (login: any, res: any) => {
-    //Check if username and password are set
     try {
       let { email, password } = login
       if (!(email && password)) {
@@ -42,7 +41,7 @@ export class AuthService {
         res.status(404).send({ error: "User does not exist" })
       }
     } catch (error) {
-      res.status(404).send({ error: "Error" })
+      res.status(404).send({ error: error })
     }
     // try {
     //   //Sing JWT, valid for 1 hour

@@ -1,9 +1,7 @@
 import compression from "compression"
 import cookieParser from "cookie-parser"
 
-const serverless = require('serverless-http')
-
-import express, { Application } from "express"
+import express from "express"
 import helmet from "helmet"
 import morgan from "morgan"
 import cors from "cors"
@@ -22,6 +20,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  port: 3306
 })
 
 db.connect((err) => {
@@ -32,11 +31,11 @@ db.connect((err) => {
   }
 })
 
-const ExpressConfig = (): Application => {
+const ExpressConfig = () => {
   const app = express()
-  const allowedOrigins = '*'
+  const allowedOrigins = "*"
 
-  const options: cors.CorsOptions = {
+  const options = {
     origin: allowedOrigins,
   }
 
