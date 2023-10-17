@@ -1,3 +1,4 @@
+import { Request, Response, Router } from "express"
 import ExpressConfig from "../express.config"
 import { Inteceptor } from "./common/middleware/response"
 import { APIGatewayEvent, Context } from "aws-lambda"
@@ -9,7 +10,12 @@ const serverless = require("serverless-http")
 const productRoutes = require("./src/module/router")
 
 // Route
-app.use("/.netlify/functions/api", productRoutes)
+// app.use("/api/", productRoutes)
+
+const router = Router()
+router.get("/hello", (req: Request, res: Response) => res.send("Hello World!"))
+
+app.use("/api/", productRoutes)
 app.use(Inteceptor.response)
 app.use(Inteceptor.errorHandler)
 
