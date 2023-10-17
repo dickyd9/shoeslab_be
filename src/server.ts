@@ -1,5 +1,5 @@
-import ExpressConfig from "./express.config"
-import { Inteceptor } from "./src/common/middleware/response"
+import ExpressConfig from "../express.config"
+import { Inteceptor } from "./common/middleware/response"
 import { APIGatewayEvent, Context } from "aws-lambda"
 
 const app = ExpressConfig()
