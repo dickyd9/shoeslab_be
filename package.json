@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "migrate": "sequelize db:migrate",
-    "start:lambda": "netlify-lambda serve src/lambda",
-    "build:lambda": "netlify-lambda build src/lambda",
+    "start:lambda": "netlify-lambda serve src/server.ts",
+    "build:lambda": "netlify-lambda builsd src/server.ts",
     "start": "netlify-lambda serve src",
     "build": "netlify-lambda build src",
     "dev": "nodemon ./src/server.ts",

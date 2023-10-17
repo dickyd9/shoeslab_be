@@ -14,7 +14,7 @@ app.use(Inteceptor.response)
 app.use(Inteceptor.errorHandler)
 
 app.listen(PORT, () => {
-  console.log(`Server is Fire at http://localhost:${PORT}`)
+  console.log(`Server is Fire at ${PORT}`)
 })
 
 export const handler = async (event: APIGatewayEvent, context: Context) => {
