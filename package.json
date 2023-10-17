@@ -9,8 +9,8 @@
     "migrate": "sequelize db:migrate",
     "start:lambda": "netlify-lambda serve src/server.ts",
     "build:lambda": "netlify-lambda builsd src/server.ts",
-    "start": "netlify-lambda serve src",
-    "build": "netlify-lambda serve src",
+    "start": "NODE_ENV=development netlify-lambda serve src",
+    "build": "NODE_ENV=development netlify-lambda build src",
     "dev": "nodemon ./src/server.ts",
     "prod": "NODE_ENV=production nodemon ./src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
